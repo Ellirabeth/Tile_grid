@@ -4,16 +4,22 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
+import static org.lwjgl.opengl.GL11.*;
+import static helpers.Artist.*;
+
 public class Boot {
 	public Boot() {
-		Display.setTitle("My_Title_game");
-		try {
-			Display.setDisplayMode(new DisplayMode(600, 600));
-			Display.create();
-		} catch (LWJGLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		BeginSession();
+ 
+ 		while(!Display.isCloseRequested()){
+
+
+ 			DrawSquad(50, 50, 100, 101);
+ 			DrawSquad(150, 150, 100, 100);
+	 
+ 			Display.update();
+ 			Display.sync(60);
+ 		}
 		
 	}
 
