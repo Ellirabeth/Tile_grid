@@ -14,7 +14,7 @@ public class Boot {
  		while(!Display.isCloseRequested()){
 
 
- 			DrawSquad(50, 50, 100, 101);
+ 			DrawSquad(50, 50, 100, 100);
  			DrawSquad(150, 150, 100, 100);
 	 
  			Display.update();
