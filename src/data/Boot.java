@@ -17,8 +17,8 @@ public class Boot {
 		Tile tile2 = new Tile (0, 64, 64, 64, TileType.Dirt);
  		while(!Display.isCloseRequested()){
 
- 			DrawQuadTex(tile.getTexture(), tile.getX(), tile.getY(),tile.getHeight(), tile.getWidth());
- 			DrawQuadTex(tile2.getTexture(), tile2.getX(), tile2.getY(),tile2.getHeight(), tile2.getWidth());
+ 			tile.Draw();
+ 			tile2.Draw();
 	 
  			Display.update();
  			Display.sync(60);

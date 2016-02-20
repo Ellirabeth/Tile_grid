@@ -67,4 +67,8 @@ public class Tile {
 			this.texture = QuickLoad(type.textureName);
 			
 		}
+		
+		public void Draw() {
+			DrawQuadTex(texture, x, y, width, height);
+		}
 }
