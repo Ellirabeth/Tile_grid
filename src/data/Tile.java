@@ -1,6 +1,7 @@
 package data;
 
 import org.newdawn.slick.opengl.Texture;
+
 public class Tile {
 
 		private float x,y,width,height;
