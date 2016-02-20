@@ -10,15 +10,15 @@ import static helpers.Artist.*;
 
 public class Boot {
 	public Boot() {
+		
 		BeginSession();
 		
-		Texture t = QuickLoad("grass_64");
-		Texture t2 = QuickLoad("mud_64");
+		Tile tile = new Tile (0, 0, 64, 64, TileType.Grass);
+		Tile tile2 = new Tile (0, 64, 64, 64, TileType.Dirt);
  		while(!Display.isCloseRequested()){
- 			DrawQuadTex(t, 0, 0, 64, 64);
- 			DrawQuadTex(t2, 64, 0, 64, 64);
 
-
+ 			DrawQuadTex(tile.getTexture(), tile.getX(), tile.getY(),tile.getHeight(), tile.getWidth());
+ 			DrawQuadTex(tile2.getTexture(), tile2.getX(), tile2.getY(),tile2.getHeight(), tile2.getWidth());
 	 
  			Display.update();
  			Display.sync(60);
