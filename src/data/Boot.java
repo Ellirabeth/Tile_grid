@@ -13,13 +13,11 @@ public class Boot {
 		
 		BeginSession();
 		
-		Tile tile = new Tile (0, 0, 64, 64, TileType.Grass);
-		Tile tile2 = new Tile (0, 64, 64, 64, TileType.Dirt);
+		TileGrid grid = new TileGrid();
  		while(!Display.isCloseRequested()){
 
- 			tile.Draw();
- 			tile2.Draw();
-	 
+
+ 			grid.Draw();
  			Display.update();
  			Display.sync(60);
  		}
