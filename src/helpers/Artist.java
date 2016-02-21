@@ -46,33 +46,48 @@ public class Artist {
 		glEnable(GL_TEXTURE_2D);
 	}
 	
+	public static  void DrawSquad(float x, float y, float width, float height){
+		glBegin(GL_QUADS);
+		
+		glVertex2f(x, y); //Top left corner
+		glVertex2f(x + width, y); //Top right corner
+		glVertex2f(x + width, y + height); //Bottom right corner
+		glVertex2f(x, y + height); //Bottom left corner
+		
+		 
+		glEnd();
+	}
+	
 	public static void DrawSquad_2x5D(float x, float y, float width, float height) {
 		glBegin(GL_QUADS);
 		//glLineWidth (20);
 		//glBegin(GL_LINE_LOOP);
 		glVertex2f(x, y); //Top left corner
-		//glColor3f(0.0f,0.0f,1.0f); //blue color
+																//glColor3f(0.0f,0.0f,1.0f); //blue color
 		glVertex2f(x + width/2, y+height/2); //Top right corner
-		//glColor3f(0.0f,1.0f,0.0f); //green color
+																//glColor3f(0.0f,1.0f,0.0f); //green color
 		glVertex2f(x , y + height); //Bottom right corner
-		//glColor3f(1.0f,0.0f,0.0f); //blue red
+																//glColor3f(1.0f,0.0f,0.0f); //blue red
 		glVertex2f(x-width/2, y + height/2); //Bottom left corner
 		
 		glEnd();
 	}
 	
-	public static void DrawQuadTex(Texture tex, float x, float y, float widht, float height){
+	public static void DrawQuadTex(Texture tex, float x, float y, float width, float height){
 		tex.bind();
 		glTranslatef(x, y, 0);
 		glBegin(GL_QUADS);
 		glTexCoord2f(0, 0);
-		glVertex2f(0, 0);
-		glTexCoord2f(1,0);
-		glVertex2f(widht, 0);
-		glTexCoord2f(1,1);		
-		glVertex2f(widht,height);
-		glTexCoord2f(0, 1);
-		glVertex2f(0, height);
+		glVertex2f(0 + WIDHT/2, 0); //Top left corner
+		
+		glTexCoord2f(1,0); //Bottom left corner
+		glVertex2f(0 - width/2 + WIDHT/2, 0 + height/2); 
+		
+		glTexCoord2f(1,1); //Bottom right corner
+		glVertex2f(0 + WIDHT/2, 0 + height);
+		
+		glTexCoord2f(0, 1); //Top right corner
+		glVertex2f(0 + width/2 + WIDHT/2, 0 + height/2);
 		glEnd();
 		glLoadIdentity();
 	}

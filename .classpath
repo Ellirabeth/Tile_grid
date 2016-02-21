@@ -9,6 +9,5 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/Vova/Учёба/java/Eclipse_workspace/Tile_grid_Elli/src/lib/jars/lwjgl_util.jar"/>
 	<classpathentry kind="lib" path="D:/Vova/Учёба/java/Eclipse_workspace/Tile_grid_Elli/src/lib/jars/slick-util.jar"/>
-	<classpathentry kind="lib" path="D:/Vova/Учёба/java/jar/lwjgl-2.9.1/lwjgl_devil.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

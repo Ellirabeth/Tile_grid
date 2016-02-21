@@ -61,7 +61,7 @@ public class Tile {
 		public Tile(float x, float y, float width, float height, TileType type ){
 			this.x = x;
 			this.y = y;
-			this.height = height;
+			this.height = height; //interest effect if // this.height = height/2;
 			this.width = width;
 			this.type = type;
 			this.texture = QuickLoad(type.textureName);
