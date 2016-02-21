@@ -46,12 +46,18 @@ public class Artist {
 		glEnable(GL_TEXTURE_2D);
 	}
 	
-	public static void DrawSquad(float x, float y, float width, float height) {
+	public static void DrawSquad_2x5D(float x, float y, float width, float height) {
 		glBegin(GL_QUADS);
+		//glLineWidth (20);
+		//glBegin(GL_LINE_LOOP);
 		glVertex2f(x, y); //Top left corner
-		glVertex2f(x + width, y); //Top right corner
-		glVertex2f(x + width, y + height); //Bottom right corner
-		glVertex2f(x, y + height); //Bottom left corner
+		//glColor3f(0.0f,0.0f,1.0f); //blue color
+		glVertex2f(x + width/2, y+height/2); //Top right corner
+		//glColor3f(0.0f,1.0f,0.0f); //green color
+		glVertex2f(x , y + height); //Bottom right corner
+		//glColor3f(1.0f,0.0f,0.0f); //blue red
+		glVertex2f(x-width/2, y + height/2); //Bottom left corner
+		
 		glEnd();
 	}
 	
