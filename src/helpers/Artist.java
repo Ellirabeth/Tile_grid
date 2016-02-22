@@ -30,13 +30,14 @@ public class Artist {
 	public static final int WIDHT = 1200, HEIGHT = 700;
 	
 	public static void BeginSession() {
-		Display.setTitle("My_Title_game");
 		try {
 			Display.setDisplayMode(new DisplayMode(WIDHT, HEIGHT));
+			Display.setTitle("My_Title_game");
 			Display.create();
 		} catch (LWJGLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			Display.destroy();
+			System.exit(1);
 		}
 		
 		glMatrixMode(GL_PROJECTION);
@@ -44,6 +45,9 @@ public class Artist {
 		glOrtho(0, WIDHT, HEIGHT, 0, 1, -1);
 		glMatrixMode(GL_MODELVIEW);
 		glEnable(GL_TEXTURE_2D);
+		glPushMatrix();
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear The Screen And The Depth Buffer
+		glLoadIdentity();
 	}
 	
 	public static  void DrawSquad(float x, float y, float width, float height){
@@ -95,7 +99,7 @@ public class Artist {
 	public static void DrawQuadDot(float x, float y, float width, float height){
 		glPointSize(2);
 		glBegin(GL_LINE_LOOP);
-
+		glColor3f(0.0f,1.0f,0.0f);
 		glClear(GL_DEPTH_BUFFER_BIT);
 		
 		glVertex2f(x, y); //Top left corner
