@@ -37,10 +37,11 @@ public class Boot {
 		
 		TileGrid grid = new TileGrid(map);
 		grid.SetTile(7, 6, grid.GetTile(3,0).getType()); //duplicate tile
+		Enemy e=new Enemy(QuickLoad("destroyer"), grid.GetTile(1, 2), 64.1f, 63.9f, 2);
  		while(!Display.isCloseRequested()){
  			
  			grid.Draw();
- 			
+ 			e.Draw();
  			Display.update();
  			Display.sync(60);
  		}
