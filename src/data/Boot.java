@@ -36,11 +36,11 @@ public class Boot {
 
 
  			grid.Draw();
+ 			//DrawQuadDot(WIDHT/2-32, 0, 64, 64);
  			//DrawSquad(50, 50, 100, 100);
  			//DrawSquad(150+2, 50, 100, 100);
  			//DrawSquad_2x5D(150, 160, 100, 100);
  			//DrawSquad_2x5D(200+2, 210+2, 100, 100);
- 			
  			Display.update();
  			Display.sync(60);
  		}

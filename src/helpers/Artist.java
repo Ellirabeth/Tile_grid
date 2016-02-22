@@ -92,6 +92,21 @@ public class Artist {
 		glLoadIdentity();
 	}
 	
+	public static void DrawQuadDot(float x, float y, float width, float height){
+		glPointSize(2);
+		glBegin(GL_LINE_LOOP);
+
+		glClear(GL_DEPTH_BUFFER_BIT);
+		
+		glVertex2f(x, y); //Top left corner
+		glVertex2f(x + width, y); //Top right corner
+		glVertex2f(x + width, y + height); //Bottom right corner
+		glVertex2f(x, y + height); //Bottom left corner
+		
+		glEnd();
+		glLoadIdentity();
+	}
+	
 	public static Texture LoadTexture(String path, String fileType){
 		Texture tex=null;
 		InputStream in = ResourceLoader.getResourceAsStream(path);

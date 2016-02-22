@@ -7,6 +7,25 @@ import static helpers.Artist.*;
 public class Tile {
 
 		private float x,y,width,height;
+
+		private Texture texture;
+		private TileType type;
+		
+		public Tile(float x, float y, float width, float height, TileType type ){
+			this.x = x;
+			this.y = y;
+			this.height = height; //interest effect if // this.height = height/2;
+			this.width = width;
+			this.type = type;
+			this.texture = QuickLoad(type.textureName);
+			
+		}
+		
+		public void Draw() {
+			DrawQuadTex(texture, x, y, width, height);
+		}
+		
+		
 		public float getX() {
 			return x;
 		}
@@ -53,22 +72,5 @@ public class Tile {
 
 		public void setType(TileType type) {
 			this.type = type;
-		}
-
-		private Texture texture;
-		private TileType type;
-		
-		public Tile(float x, float y, float width, float height, TileType type ){
-			this.x = x;
-			this.y = y;
-			this.height = height; //interest effect if // this.height = height/2;
-			this.width = width;
-			this.type = type;
-			this.texture = QuickLoad(type.textureName);
-			
-		}
-		
-		public void Draw() {
-			DrawQuadTex(texture, x, y, width, height);
 		}
 }
