@@ -45,9 +45,11 @@ public class Artist {
 		glOrtho(0, WIDHT, HEIGHT, 0, 1, -1);
 		glMatrixMode(GL_MODELVIEW);
 		glEnable(GL_TEXTURE_2D);
-		glPushMatrix();
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear The Screen And The Depth Buffer
-		glLoadIdentity();
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		//glPushMatrix();
+		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear The Screen And The Depth Buffer
+		//glLoadIdentity();
 	}
 	
 	public static  void DrawSquad(float x, float y, float width, float height){
