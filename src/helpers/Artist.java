@@ -49,19 +49,19 @@ public class Artist {
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		//glPushMatrix();
 		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear The Screen And The Depth Buffer
-		//glLoadIdentity();
+		glLoadIdentity();
 	}
 	
 	public static  void DrawSquad(float x, float y, float width, float height){
 		glBegin(GL_QUADS);
-		
+
 		glVertex2f(x, y); //Top left corner
 		glVertex2f(x + width, y); //Top right corner
 		glVertex2f(x + width, y + height); //Bottom right corner
 		glVertex2f(x, y + height); //Bottom left corner
-		
-		 
+
 		glEnd();
+		glLoadIdentity();
 	}
 	
 	public static void DrawSquad_2x5D(float x, float y, float width, float height) {
@@ -77,11 +77,12 @@ public class Artist {
 		glVertex2f(x-width/2, y + height/2); //Bottom left corner
 		
 		glEnd();
+		glLoadIdentity();
 	}
 	
 	public static void DrawQuadTex(Texture tex, float x, float y, float width, float height){
 		tex.bind();
-		glTranslatef(x, y, 0);
+		glTranslatef(x, y, 0); //set layer 0
 		glBegin(GL_QUADS);
 		glTexCoord2f(0, 0);
 		glVertex2f(0 + WIDHT/2, 0); //Top left corner
@@ -101,7 +102,6 @@ public class Artist {
 	public static void DrawQuadDot(float x, float y, float width, float height){
 		glPointSize(2);
 		glBegin(GL_LINE_LOOP);
-		glColor3f(0.0f,1.0f,0.0f);
 		glClear(GL_DEPTH_BUFFER_BIT);
 		
 		glVertex2f(x, y); //Top left corner

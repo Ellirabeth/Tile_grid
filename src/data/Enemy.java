@@ -3,6 +3,7 @@ package data;
 import java.util.Map;
 
 import org.newdawn.slick.opengl.Texture;
+import static org.lwjgl.opengl.GL11.*;
 
 import static helpers.Artist.*;
 public class Enemy {
@@ -23,5 +24,6 @@ public class Enemy {
 	
 	public void Draw () {
 		DrawQuadTex(texture, x-x/2-y/2, y+x/2-y/2, width, height);
+
 	}
 }
