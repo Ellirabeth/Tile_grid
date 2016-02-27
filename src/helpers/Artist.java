@@ -45,21 +45,21 @@ public class Artist {
 		glOrtho(0, WIDHT, HEIGHT, 0, 1, -1);
 		glMatrixMode(GL_MODELVIEW);
 		glEnable(GL_TEXTURE_2D);
-		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		
 		//glPushMatrix();
 		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear The Screen And The Depth Buffer
+		
 		glLoadIdentity();
 	}
 	
 	public static  void DrawSquad(float x, float y, float width, float height){
 		glBegin(GL_QUADS);
-
-		glVertex2f(x, y); //Top left corner
-		glVertex2f(x + width, y); //Top right corner
-		glVertex2f(x + width, y + height); //Bottom right corner
-		glVertex2f(x, y + height); //Bottom left corner
-
+	
+			glVertex2f(x, y); //Top left corner
+			glVertex2f(x + width, y); //Top right corner
+			glVertex2f(x + width, y + height); //Bottom right corner
+			glVertex2f(x, y + height); //Bottom left corner
 		glEnd();
 		glLoadIdentity();
 	}
@@ -82,33 +82,36 @@ public class Artist {
 	
 	public static void DrawQuadTex(Texture tex, float x, float y, float width, float height){
 		tex.bind();
-		glTranslatef(x, y, 0); //set layer 0
-		glBegin(GL_QUADS);
-		glTexCoord2f(0, 0);
-		glVertex2f(0 + WIDHT/2, 0); //Top left corner
-		
-		glTexCoord2f(1,0); //Bottom left corner
-		glVertex2f(0 - width/2 + WIDHT/2, 0 + height/2); 
-		
-		glTexCoord2f(1,1); //Bottom right corner
-		glVertex2f(0 + WIDHT/2, 0 + height);
-		
-		glTexCoord2f(0, 1); //Top right corner
-		glVertex2f(0 + width/2 + WIDHT/2, 0 + height/2);
-		glEnd();
+		glEnable(GL_BLEND); // Turn alpha
+			glTranslatef(x, y, 0); //set layer 0
+				glBegin(GL_QUADS);
+				glTexCoord2f(0, 0);
+				glVertex2f(0 + WIDHT/2, 0); //Top left corner
+				
+				glTexCoord2f(1,0); //Bottom left corner
+				glVertex2f(0 - width/2 + WIDHT/2, 0 + height/2); 
+				
+				glTexCoord2f(1,1); //Bottom right corner
+				glVertex2f(0 + WIDHT/2, 0 + height);
+				
+				glTexCoord2f(0, 1); //Top right corner
+				glVertex2f(0 + width/2 + WIDHT/2, 0 + height/2);
+				glEnd();
+		glDisable(GL_BLEND); // Off alpha
 		glLoadIdentity();
+		
 	}
 	
 	public static void DrawQuadDot(float x, float y, float width, float height){
 		glPointSize(2);
 		glBegin(GL_LINE_LOOP);
-		glClear(GL_DEPTH_BUFFER_BIT);
-		
-		glVertex2f(x, y); //Top left corner
-		glVertex2f(x + width, y); //Top right corner
-		glVertex2f(x + width, y + height); //Bottom right corner
-		glVertex2f(x, y + height); //Bottom left corner
-		
+			glClear(GL_DEPTH_BUFFER_BIT);
+			
+			glVertex2f(x, y); //Top left corner
+			glVertex2f(x + width, y); //Top right corner
+			glVertex2f(x + width, y + height); //Bottom right corner
+			glVertex2f(x, y + height); //Bottom left corner
+			
 		glEnd();
 		glLoadIdentity();
 	}

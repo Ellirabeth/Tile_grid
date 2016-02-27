@@ -40,12 +40,15 @@ public class Boot {
 		Enemy e=new Enemy(QuickLoad("ultralisk-attack_3"), grid.GetTile(3, 3), 64.1f, 63.9f, 2);
  		while(!Display.isCloseRequested()){
  			
+ 			
  			grid.Draw();
  			glLoadIdentity();
  			e.Draw();
  			glLoadIdentity();
- 			//glColor3f(0.0f,0.0f,1.0f); //need off Blend_ALPHA
- 			//DrawQuadDot(0, 50, 100, 100);
+
+ 			glColor3f(0.0f,0.0f,1.0f); //need off Blend_ALPHA
+ 			DrawSquad(0, 50, 100, 100);
+ 			DrawQuadDot(120, 50, 100, 100);
 
  			Display.update();
  			Display.sync(60);
