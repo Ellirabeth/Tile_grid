@@ -2,20 +2,25 @@ package helpers;
 
 import static org.lwjgl.opengl.GL11.*;
 
+import static helpers.Artist.*;
+
+import org.lwjgl.opengl.GL11;
+
 
 public class Text {
 	public static void drawString(String s, int x, int y) {
 	      int startX = x;
 	      glPointSize(1);
 	      glBegin(GL_POINTS);
+	  		
 	      for (char c : s.toLowerCase().toCharArray()) {
 	         if (c == 'a') {
 	            for (int i = 0; i < 8; i++) {
-	               glVertex2f(x + 1, y + i);
-	               glVertex2f(x + 7, y + i);
+	               glVertex2f(x + 1, y + i + 1);
+	               glVertex2f(x + 7, y + i + 1);
 	            }
 	            for (int i = 2; i <= 6; i++) {
-	               glVertex2f(x + i, y + 8);
+	               glVertex2f(x + i, y );
 	               glVertex2f(x + i, y + 4);
 	            }
 	            x += 8;
@@ -84,7 +89,7 @@ public class Text {
 	               glVertex2f(x + 1, y + i);
 	            }
 	            for (int i = 1; i <= 6; i++) {
-	               glVertex2f(x + i, y + 8);
+	               glVertex2f(x + i, y);
 	            }
 	            for (int i = 2; i <= 5; i++) {
 	               glVertex2f(x + i, y + 4);
@@ -100,9 +105,9 @@ public class Text {
 	            }
 	            glVertex2f(x + 6, y + 1);
 	            glVertex2f(x + 6, y + 2);
-	            glVertex2f(x + 6, y + 3);
-	            glVertex2f(x + 5, y + 3);
-	            glVertex2f(x + 7, y + 3);
+	            glVertex2f(x + 6, y + 5);
+	            glVertex2f(x + 5, y + 5);
+	            glVertex2f(x + 7, y + 5);
 
 	            glVertex2f(x + 6, y + 6);
 	            glVertex2f(x + 6, y + 7);
@@ -128,37 +133,37 @@ public class Text {
 	            x += 7;
 	         } else if (c == 'j') {
 	            for (int i = 1; i <= 8; i++) {
-	               glVertex2f(x + 6, y + i);
+	               glVertex2f(x + 6, y + i-1);
 	            }
 	            for (int i = 2; i <= 5; i++) {
-	               glVertex2f(x + i, y + 0);
+	               glVertex2f(x + i, y + 8);
 	            }
-	            glVertex2f(x + 1, y + 3);
-	            glVertex2f(x + 1, y + 2);
-	            glVertex2f(x + 1, y + 1);
+	            glVertex2f(x + 1, y + 5);
+	            glVertex2f(x + 1, y + 6);
+	            glVertex2f(x + 1, y + 7);
 	            x += 8;
 	         } else if (c == 'k') {
 	            for (int i = 0; i <= 8; i++) {
 	               glVertex2f(x + 1, y + i);
 	            }
-	            glVertex2f(x + 6, y + 8);
-	            glVertex2f(x + 5, y + 7);
-	            glVertex2f(x + 4, y + 6);
-	            glVertex2f(x + 3, y + 5);
+	            glVertex2f(x + 6, y );
+	            glVertex2f(x + 5, y + 1);
+	            glVertex2f(x + 4, y + 2);
+	            glVertex2f(x + 3, y + 3);
 	            glVertex2f(x + 2, y + 4);
-	            glVertex2f(x + 2, y + 3);
-	            glVertex2f(x + 3, y + 4);
-	            glVertex2f(x + 4, y + 3);
-	            glVertex2f(x + 5, y + 2);
-	            glVertex2f(x + 6, y + 1);
-	            glVertex2f(x + 7, y);
+	            glVertex2f(x + 2, y +3);
+	            glVertex2f(x + 3, y +4);
+	            glVertex2f(x + 4, y +5);
+	            glVertex2f(x + 5, y +6);
+	            glVertex2f(x + 6, y +7);
+	            glVertex2f(x + 7, y +8);
 	            x += 8;
 	         } else if (c == 'l') {
 	            for (int i = 0; i <= 8; i++) {
 	               glVertex2f(x + 1, y + i);
 	            }
 	            for (int i = 1; i <= 6; i++) {
-	               glVertex2f(x + i, y);
+	               glVertex2f(x + i, y+8);
 	            }
 	            x += 7;
 	         } else if (c == 'm') {
@@ -166,26 +171,26 @@ public class Text {
 	               glVertex2f(x + 1, y + i);
 	               glVertex2f(x + 7, y + i);
 	            }
-	            glVertex2f(x + 3, y + 6);
-	            glVertex2f(x + 2, y + 7);
-	            glVertex2f(x + 4, y + 5);
+	            glVertex2f(x + 3, y + 2);
+	            glVertex2f(x + 2, y + 1);
+	            glVertex2f(x + 4, y + 3);
 
-	            glVertex2f(x + 5, y + 6);
-	            glVertex2f(x + 6, y + 7);
-	            glVertex2f(x + 4, y + 5);
+	            glVertex2f(x + 5, y + 2);
+	            glVertex2f(x + 6, y + 1);
+	            glVertex2f(x + 4, y + 3);
 	            x += 8;
 	         } else if (c == 'n') {
 	            for (int i = 0; i <= 8; i++) {
 	               glVertex2f(x + 1, y + i);
 	               glVertex2f(x + 7, y + i);
 	            }
-	            glVertex2f(x + 2, y + 7);
-	            glVertex2f(x + 2, y + 6);
-	            glVertex2f(x + 3, y + 5);
+	            glVertex2f(x + 6, y + 7);
+	            glVertex2f(x + 6, y + 6);
+	            glVertex2f(x + 5, y + 5);
 	            glVertex2f(x + 4, y + 4);
-	            glVertex2f(x + 5, y + 3);
-	            glVertex2f(x + 6, y + 2);
-	            glVertex2f(x + 6, y + 1);
+	            glVertex2f(x + 3, y + 3);
+	            glVertex2f(x + 2, y + 2); 
+	            glVertex2f(x + 2, y + 1);
 	            x += 8;
 	         } else if (c == 'o' || c == '0') {
 	            for (int i = 1; i <= 7; i++) {
@@ -477,6 +482,7 @@ public class Text {
 	         }
 	      }
 	      glEnd();
+			      
 	   }
 
 

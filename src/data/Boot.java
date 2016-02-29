@@ -42,7 +42,7 @@ public class Boot {
 		
 		TileGrid grid = new TileGrid(map);
 		grid.SetTile(7, 6, grid.GetTile(3,0).getType()); //duplicate tile
-		Enemy e=new Enemy(QuickLoad("ultralisk-attack_3"), grid.GetTile(3, 3), 64.1f, 63.9f, 5);
+		Enemy e=new Enemy(QuickLoad("ultralisk-attack_3"), grid.GetTile(3, 3), 64.1f, 63.9f, 1);
  		while(!Display.isCloseRequested()){
  			Clock.update();
  			e.Update();
@@ -60,7 +60,7 @@ public class Boot {
  			DrawSquad(20, 90, 100, 100);
  			DrawQuadDot(140, 50, 100, 100);
  			
- 			drawString("Fack isometria", 10, 10);
+ 			drawString("o p q r s t u", 10, 10);
  			
 
  			Display.update();
