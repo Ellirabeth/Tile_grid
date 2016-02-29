@@ -3,7 +3,10 @@ package data;
 import org.lwjgl.opengl.Drawable;
 
 import static helpers.Artist.*;
+import static org.lwjgl.opengl.GL11.GL_FRONT_AND_BACK;
+import static org.lwjgl.opengl.GL11.GL_LINE;
 import static org.lwjgl.opengl.GL11.glColor3f;
+import static org.lwjgl.opengl.GL11.glPolygonMode;
 import static org.lwjgl.opengl.GL11.glTranslatef;
 
 public class TileGrid {
@@ -47,12 +50,13 @@ public class TileGrid {
 			}			
 		}
 		
-	
-/*		for (int i = 0; i < map.length; i++){
+/*	
+		for (int i = 0; i < map.length; i++){
 			for (int j = 0; j < map[i].length; j++){
 				Tile t = map[i][j];
 				glColor3f(1.0f,0.0f,1.0f);
-				DrawQuadDot(  t.getX()-32.1f*i-31.9f*j+WIDHT/2-32, t.getY()+32.1f*i-31.9f*j, t.getWidth(), t.getHeight()); //1 pix Bug
+				glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+				DrawSquad(  t.getX()-32.1f*i-31.9f*j+WIDHT/2-32, t.getY()+32.1f*i-31.9f*j, t.getWidth(), t.getHeight()); //1 pix Bug
 			}			
 		}
 		

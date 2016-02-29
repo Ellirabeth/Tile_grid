@@ -13,6 +13,7 @@ import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL11.*;
 
 
+import java.awt.AlphaComposite;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -20,6 +21,7 @@ import java.io.InputStream;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
+import org.lwjgl.opengl.EXTBlendFuncSeparate;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
@@ -45,11 +47,17 @@ public class Artist {
 		glOrtho(0, WIDHT, HEIGHT, 0, 1, -1);
 		glMatrixMode(GL_MODELVIEW);
 		glEnable(GL_TEXTURE_2D);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		
 		//glPushMatrix();
-		//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear The Screen And The Depth Buffer
-		
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear The Screen And The Depth Buffer
+		EXTBlendFuncSeparate.glBlendFuncSeparateEXT
+        (
+                    GL_SRC_ALPHA,
+                    GL_ONE_MINUS_SRC_ALPHA,
+                    GL_ONE,
+                    GL_ONE_MINUS_SRC_ALPHA
+        );
+
 		glLoadIdentity();
 	}
 	
@@ -82,6 +90,8 @@ public class Artist {
 	
 	public static void DrawQuadTex(Texture tex, float x, float y, float width, float height){
 		tex.bind();
+		glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA); //setyp alpha
 		glEnable(GL_BLEND); // Turn alpha
 			glTranslatef(x, y, 0); //set layer 0
 				glBegin(GL_QUADS);
@@ -103,8 +113,9 @@ public class Artist {
 	}
 	
 	public static void DrawQuadDot(float x, float y, float width, float height){
-		glPointSize(2);
-		glBegin(GL_LINE_LOOP);
+		glPointSize(5);
+		glBegin(GL_POINTS);
+		glColor3d(1,0,0);
 			glClear(GL_DEPTH_BUFFER_BIT);
 			
 			glVertex2f(x, y); //Top left corner

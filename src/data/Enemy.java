@@ -1,16 +1,20 @@
 package data;
 
+import java.awt.AlphaComposite;
 import java.util.Map;
 
 import org.newdawn.slick.opengl.Texture;
 import static org.lwjgl.opengl.GL11.*;
 
 import static helpers.Artist.*;
+import static helpers.Clock.*;
+
 public class Enemy {
 	private int  health;
 	private float speed, x, y,width, height;
 	private Texture texture;
 	private Tile startTile;
+	private boolean first = true;
 	
 	public Enemy(Texture texture,Tile startTile, float heigth, float widht, int speed){
 		this.texture = texture;
@@ -20,6 +24,13 @@ public class Enemy {
 		this.height = heigth;
 		this.health = health;
 		this.speed = speed;
+	}
+	
+	public void Update() {
+		if (first)
+			first = false;
+		else
+			x += Delta() * speed;
 	}
 	
 	public void Draw () {
