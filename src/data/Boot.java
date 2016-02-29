@@ -1,24 +1,31 @@
 package data;
 
 import helpers.Clock;
+import helpers.TextUtil;
 
 import java.awt.AlphaComposite;
 
 import javax.print.DocFlavor.INPUT_STREAM;
 
 import org.lwjgl.LWJGLException;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 import org.newdawn.slick.opengl.Texture;
+
 
 import static org.lwjgl.opengl.GL11.*;
 import static helpers.Artist.*;
 import static helpers.Input.*;
 import static helpers.Text.*;
+import static helpers.TextUtil.*;
 
 public class Boot {
 	public Boot() {
-		
+		TextUtil textUtil = new TextUtil(); // textutil object
+		boolean[] keys = new boolean[256];
+		int i=0;
 		BeginSession();
 		//Input_Key();
 		int[][] map = {
@@ -60,13 +67,13 @@ public class Boot {
  			DrawSquad(20, 90, 100, 100);
  			DrawQuadDot(140, 50, 100, 100);
  			
- 			drawString("o p q r s t u", 10, 10);
+ 			drawString("h i j k l m n", 10, 10);
+ 			i += 1;
+ 			textUtil.drawText(String.valueOf(i), 600, 600);
  			
-
  			Display.update();
  			Display.sync(60);
  		}
- 		
 		Display.destroy();
 		System.exit(0);
 		
