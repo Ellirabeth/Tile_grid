@@ -50,14 +50,15 @@ public class Boot {
 		TileGrid grid = new TileGrid(map);
 		grid.SetTile(7, 6, grid.GetTile(3,0).getType()); //duplicate tile
 		Enemy e=new Enemy(QuickLoad("ultralisk-attack_3"), grid.GetTile(3, 3), 64.1f, 63.9f, 1);
- 		while(!Display.isCloseRequested()){
+ 		Wave wave = new Wave(10, e);
+		while(!Display.isCloseRequested()){
  			Clock.update();
- 			e.Update();
+ 			
  			
  			grid.Draw();
  			glLoadIdentity();
- 			e.Draw();
- 			glLoadIdentity();
+ 			wave.update();
+
  			
  			glColor3f(0.0f,0.0f,1.0f); //need off Blend_ALPHA
  			DrawSquad(0, 50, 100, 100);
