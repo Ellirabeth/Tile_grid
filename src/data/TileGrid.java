@@ -11,21 +11,25 @@ import static org.lwjgl.opengl.GL11.glTranslatef;
 
 public class TileGrid {
 	public Tile[][] map;
-	
+	public static int TileSizeX =11;
+	public static int TileSizeY =11;
 	public TileGrid(int[][] newMap){
-		
-		map = new Tile[11][11];
+
+		map = new Tile[TileSizeX][TileSizeY];
 		for (int i = 0; i < map.length; i++){
 			for (int j = 0; j < map[i].length; j++){
 					switch (newMap[j][i]) {
 					case 0:
-						map[i][j] = new Tile (i * 64f, j * 64f, 63.9f, 64.1f, TileType.Water);
+						map[i][j] = new Tile (i * 64f ,
+								j * 64f  , 63.9f, 64.1f, TileType.Water);
 						break;
 					case 1:
-						map[i][j] = new Tile (i * 64f, j * 64f, 63.9f, 64.1f, TileType.Dirt);
+						map[i][j] = new Tile (i * 64f ,
+								j * 64f  , 63.9f, 64.1f, TileType.Dirt);
 						break;
 					case 2:
-						map[i][j] = new Tile (i * 64f, j * 64f, 63.9f, 64.1f, TileType.Grass);
+						map[i][j] = new Tile (i * 64f ,
+								j * 64f  , 63.9f, 64.1f, TileType.Grass);
 					
 						
 				}
