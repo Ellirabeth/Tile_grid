@@ -1,9 +1,9 @@
 package data;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-import static helpers.Clock.*;
-import data.Tile.*;
+import helpers.Clock;
 
 public class Wave {
 	
@@ -15,11 +15,11 @@ public class Wave {
 		this.enemyType = enemyType;
 		this.spawnTime = spawnTime;
 		timeSinceLastSpawn=0;
-		enemyList = new ArrayList<Enemy>();
+		enemyList = new ArrayList<Enemy>(Collections.singleton(enemyType));
 	}
 	
 	public void update() {
-		timeSinceLastSpawn += Delta();
+		timeSinceLastSpawn += Clock.getDeltaTickOrFrame(true);
 		if (timeSinceLastSpawn > spawnTime) {
 			Spawn();
 			timeSinceLastSpawn = 0;

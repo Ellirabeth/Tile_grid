@@ -1,10 +1,6 @@
 package data;
 
-import java.awt.AlphaComposite;
-import java.util.Map;
-
 import org.newdawn.slick.opengl.Texture;
-import static org.lwjgl.opengl.GL11.*;
 
 import static helpers.Artist.*;
 import static helpers.Clock.*;
@@ -30,7 +26,7 @@ public class Enemy {
 		if (first)
 			first = false;
 		else
-			x += Delta() * speed;
+			x += upDeltaTick() * speed;
 	}
 	
 	public void Draw () {

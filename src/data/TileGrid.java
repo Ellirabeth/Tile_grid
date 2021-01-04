@@ -37,14 +37,14 @@ public class TileGrid {
 		}
 	}
 	
-	public void SetTile(int xCoord, int yCoord, TileType type){
+	public void setTile(int xCoord, int yCoord, TileType type){
 		map[xCoord][yCoord] = new Tile (xCoord * 64, yCoord*64, 63.9f, 64.1f, type); //size replace tile
 	}
 	
-	public Tile GetTile(int xCoord, int yCoord){
+	public Tile getTile(int xCoord, int yCoord){
 		return map[xCoord][yCoord];
 	}
-	public void Draw(){
+	public void draw(){
 		glColor3f(1.0f,1.0f,1.0f);
 		for (int i = 0; i < map.length; i++){
 			for (int j = 0; j < map[i].length; j++){
